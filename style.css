@@ -1,0 +1,55 @@
+.the-rock {
+    width: 50px;
+    height: 50px;
+    background-color: green;
+}
+
+.flex-me {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 100px);
+    grid-template-rows: repeat(7, 100px);
+    border: 1px solid red;
+    text-align: center;
+    margin: auto;
+   }
+
+.x1-y1:hover, .x2-y1:hover, .x3-y1:hover, .x4-y1:hover, .x5-y1:hover {
+    background: purple;
+    
+}
+.x1-y2:hover, .x2-y2:hover, .x3-y2:hover, .x4-y2:hover, .x5-y2:hover {
+    background: green;
+    
+}
+
+.x1-y3:hover, .x2-y3:hover, .x3-y3:hover, .x4-y3:hover, .x5-y3:hover {
+    background: yellow;
+    
+}
+
+.x1-y4:hover, .x2-y4:hover, .x3-y4:hover, .x4-y4:hover, .x5-y4:hover {
+    background:blue;
+    
+}
+
+.x1-y5:hover, .x2-y5:hover, .x3-y5:hover, .x4-y5:hover, .x5-y5:hover {
+    background: red;
+    
+}
+
+.x1-y1:hover, .x2-y1:hover, .x3-y1:hover, .x4-y1:hover, .x5-y1:hover {
+    background: purple;
+    
+}
+
+/* .x2-y1:hover, .x2-y2:hover, .x2-y3:hover, .x1-y4:hover, .x1-y5:hover {
+    background: purple;
+    
+}
+ */
+
