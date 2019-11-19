@@ -94,5 +94,48 @@ const Rock = function (colour, speed, location) {
     this.location = location
 }
 
-// const red1 = new Rock('red', 0, {x:0, y:0})
+
+const allRedRocks = []
+
+let red1 = new Rock('red', 0, {x:0, y:0})
+let red2 = new Rock('red', 0, {x:0, y:0})
+let red3 = new Rock('red', 0, {x:0, y:0})
+let red4 = new Rock('red', 0, {x:0, y:0})
+let red5 = new Rock('red', 0, {x:0, y:0})
+let red6 = new Rock('red', 0, {x:0, y:0})
+let red7 = new Rock('red', 0, {x:0, y:0})
+let red8 = new Rock('red', 0, {x:0, y:0})
+
+let blue1 = new Rock('blue', 0, {x:0, y:0})
+let blue2 = new Rock('blue', 0, {x:0, y:0})
+let blue3 = new Rock('blue', 0, {x:0, y:0})
+let blue4 = new Rock('blue', 0, {x:0, y:0})
+let blue5 = new Rock('blue', 0, {x:0, y:0})
+let blue6 = new Rock('blue', 0, {x:0, y:0})
+let blue7 = new Rock('blue', 0, {x:0, y:0})
+let blue8 = new Rock('blue', 0, {x:0, y:0})
+
+console.log(blue1);
+
 // console.log(red1)
+const allRocks = [
+    
+    {
+  
+    lineChoice: 1,
+    speed: draw,
+    value: 1,
+
+    },
+    
+    {
+    lineChoice: 2,
+    speed: draw,
+    value: 2,
+
+    }
+
+
+
+]
+
