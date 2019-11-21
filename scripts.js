@@ -25,6 +25,13 @@ let x2y4 = document.getElementById('x2-y4')
 let x3y4 = document.getElementById('x3-y4')
 let x4y4 = document.getElementById('x4-y4')
 let x5y4 = document.getElementById('x5-y4')
+// ******
+let x1y5 = document.getElementById('x1-y5')
+let x2y5 = document.getElementById('x2-y5')
+let x3y5 = document.getElementById('x3-y5')
+let x4y5 = document.getElementById('x4-y5')
+let x5y5 = document.getElementById('x5-y5')
+// ****
 let x1y6 = document.getElementById('x1-y6')
 let x2y6 = document.getElementById('x2-y6')
 let x3y6 = document.getElementById('x3-y6')
@@ -115,29 +122,91 @@ const tossRock = function () {
         } else {
             x5y2.style.background = "blue"
         }
-        
-    } else if (lineChoice === '1' && speedChoice ==='hit') {
-        if(x1Line.style.background === "blue") {
-            x1Line.style.background = "red" }
+    } else if (lineChoice === '1' && speedChoice ==='medium') {
+        if (Math.random() > 0.5) {
+            x1y3.style.background = "blue"
+        } else {
+            x1y4.style.background = "blue"
         }
-    else if (lineChoice === '2' && speedChoice ==='hit') {
-        if(x2Line.style.background === "blue") {
-            x2Line.style.background = "red" }
+    } else if (lineChoice === '2' && speedChoice ==='medium') {
+        if (Math.random() > 0.5) {
+            x2y3.style.background = "blue"
+        } else {
+            x2y4.style.background = "blue"
+        }
+    } else if (lineChoice === '3' && speedChoice ==='medium') {
+        if (Math.random() > 0.5) {
+            x3y3.style.background = "blue"
+        } else {
+            x3y4.style.background = "blue"
+        }
+    } else if (lineChoice === '4' && speedChoice ==='medium') {
+        if (Math.random() > 0.5) {
+            x4y3.style.background = "blue"
+        } else {
+            x4y4.style.background = "blue"
+        }
+    } else if (lineChoice === '5' && speedChoice ==='medium') {
+        if (Math.random() > 0.5) {
+            x5y3.style.background = "blue"
+        } else {
+            x5y4.style.background = "blue"
+        }
+    } else if (lineChoice === '1' && speedChoice ==='light') {
+        if (Math.random() > 0.5) {
+            x1y5.style.background = "blue"
+        } else {
+            x1y6.style.background = "blue"
+        }
+    } else if (lineChoice === '2' && speedChoice ==='light') {
+        if (Math.random() > 0.5) {
+            x2y5.style.background = "blue"
+        } else {
+            x2y6.style.background = "blue"
+        }
+    } else if (lineChoice === '3' && speedChoice ==='light') {
+        if (Math.random() > 0.5) {
+            x3y5.style.background = "blue"
+        } else {
+            x3y6.style.background = "blue"
+        }
+    } else if (lineChoice === '4' && speedChoice ==='light') {
+        if (Math.random() > 0.5) {
+            x4y5.style.background = "blue"
+        } else {
+            x4y6.style.background = "blue"
         } 
-    else if (lineChoice === '3' && speedChoice ==='hit') {
-        if(x3Line.style.background === "blue") {
-            x3Line.style.background = "red" }
+    } else if (lineChoice === '5' && speedChoice ==='light') {
+        if (Math.random() > 0.5) {
+            x5y5.style.background = "blue"
+        } else {
+            x5y6.style.background = "blue"
         }
-    else if (lineChoice === '4' && speedChoice ==='hit') {
-        if(x4Line.style.background === "blue") {
-            x4Line.style.background = "red" }
-        }
-    else if (lineChoice === '5' && speedChoice ==='hit') {
-        if(x5Line.style.background === "blue") {
-            x5Line.style.background = "red" }
-    } else {
-        console.log("Pick your line and weight before shooting")
     }
+     
+    // } else if (lineChoice === '1' && speedChoice ==='hit') {
+    //     if(x1y1.style.background === "blue") {
+    //         x1Line.style.background = "red" }
+    //     } else if (x2y1.style.background === "blue") {
+    //         x2y1.style.background = "red" }
+    // else if (lineChoice === '2' && speedChoice ==='hit') {
+    //     if(x2Line.style.background === "blue") {
+    //         x2Line.style.background = "red" }
+    //     } 
+    // else if (lineChoice === '3' && speedChoice ==='hit') {
+    //     if(x3Line.style.background === "blue") {
+    //         x3Line.style.background = "red" }
+    //     }
+    // else if (lineChoice === '4' && speedChoice ==='hit') {
+    //     if(x4Line.style.background === "blue") {
+    //         x4Line.style.background = "red" }
+    //     }
+    // else if (lineChoice === '5' && speedChoice ==='hit') {
+    //     if(x5Line.style.background === "blue") {
+    //         x5Line.style.background = "red" }
+    // } else {
+    //     console.log("Pick your line and weight before shooting")
+    // }
 }
 
 
@@ -170,25 +239,53 @@ let blue8 = new Rock('blue', 0, {x:0, y:0})
 
 console.log(blue1);
 
-// console.log(red1)
-const allRocks = [
-    
-    {
-  
-    lineChoice: 1,
-    speed: draw,
-    value: 1,
+// 1.make an object for each square in the grid
+// 2.include speed, line, grid location and rock present = false
+// 3.save user choices to a variable
+// 4. write a toss rock function that loops throught he array looking for match to user selections
+// 5. append color (rock) to grid location accordingly
 
-    },
-    
-    {
-    lineChoice: 2,
-    speed: draw,
-    value: 2,
+let blue = [{
 
-    }
+    speed = medium,
+    line = 3,
+    location = x1y1,
+    present = false,
+
+},{
+
+    speed = medium,
+    line = 3,
+    location = x1y2,
+    present = false,
+
+},
 
 
 
 ]
+
+
+
+// console.log(red1)
+// const allRocks = [
+    
+//     {
+  
+//     lineChoice: 1,
+//     speed: draw,
+//     value: 1,
+
+//     },
+    
+//     {
+//     lineChoice: 2,
+//     speed: draw,
+//     value: 2,
+
+//     }
+
+
+
+// ]
 
