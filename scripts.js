@@ -91,16 +91,31 @@ const tossRock = function () {
         } else {
             x1y2.style.background = "blue"
         }
-        
     } else if (lineChoice === '2' && speedChoice ==='heavy') {
-        x2Line.style.background = "blue"
+        if (Math.random() > 0.5) {
+            x2y1.style.background = "blue"
+        } else {
+            x2y2.style.background = "blue"
+        }    
     } else if (lineChoice === '3' && speedChoice ==='heavy') {
-        x3Line.style.background = "blue"
+        if (Math.random() > 0.5) {
+            x3y1.style.background = "blue"
+        } else {
+            x3y2.style.background = "blue"
+        }
     } else if (lineChoice === '4' && speedChoice ==='heavy') {
-        x4Line.style.background = "blue"
+        if (Math.random() > 0.5) {
+            x4y1.style.background = "blue"
+        } else {
+            x4y2.style.background = "blue"
+        }
     } else if (lineChoice === '5' && speedChoice ==='heavy') {
-        x5Line.style.background = "blue"
-
+        if (Math.random() > 0.5) {
+            x5y1.style.background = "blue"
+        } else {
+            x5y2.style.background = "blue"
+        }
+        
     } else if (lineChoice === '1' && speedChoice ==='hit') {
         if(x1Line.style.background === "blue") {
             x1Line.style.background = "red" }
