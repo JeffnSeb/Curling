@@ -3,6 +3,8 @@ let mediumSubmit = document.getElementById('mediumButton')
 let heavySubmit = document.getElementById('heavyButton')
 let hitSubmit = document.getElementById('hitButton')
 
+
+
 let tossSubmit = document.getElementById('tossButton')
 
 let x1y1 = document.getElementById('x1-y1')
@@ -66,17 +68,29 @@ x5y1.addEventListener('click', function(){
 let speedChoice = ''
 lightSubmit.addEventListener('click', function(event){
     event.preventDefault()
-    speedChoice = 'light'
+    if (Math.random() > 0.5) {
+        speedChoice = "5"
+    } else {
+        speedChoice = "6"
+    }
 })
 
 mediumSubmit.addEventListener('click', function(event){
     event.preventDefault()
-    speedChoice = 'medium'
+    if (Math.random() > 0.5) {
+        speedChoice = "3"
+    } else {
+        speedChoice = "4"
+    }
 })
 
 heavySubmit.addEventListener('click', function(event){
     event.preventDefault()
-    speedChoice = 'heavy'
+    if (Math.random() > 0.5) {
+        speedChoice = "1"
+    } else {
+        speedChoice = "2"
+    }
 })
 
 
@@ -90,100 +104,239 @@ tossSubmit.addEventListener('click', function(event){
     tossRock()
 })
 
-//write a function that takes the speed picked and line picked, then outputs the new rock location
+
+// 1.make an object for each square in the grid
+// 2.include speed, line, grid location and rock present = false
+// 3.save user choices to a variable
+// 4. write a toss rock function that loops throught he array looking for match to user selections
+// 5. append color (rock) to grid location accordingly
+
+let rockData = [{
+
+    rockSpeed : "1",
+    rockLine : "1",
+    location : x1y1,
+    present : false,
+
+},{
+
+
+    rockSpeed : "1",
+    rockLine : "2",
+    location : x2y1,
+    present : false,
+
+},{
+
+    rockSpeed : "1",
+    rockLine : "3",
+    location : x3y1,
+    present : false,
+
+},{
+
+    rockSpeed : "1",
+    rockLine : "4",
+    location : x4y1,
+    present : false,
+
+},{
+
+    rockSpeed : "1",
+    rockLine : "5",
+    location : x5y1,
+    present : false,
+
+},
+
+{
+
+    rockSpeed : "2",
+    rockLine : "1",
+    location : x1y2,
+    present : false,
+
+},{
+
+    rockSpeed : "2",
+    rockLine : "2",
+    location : x2y2,
+    present : false,
+
+},{
+
+    rockSpeed : "2",
+    rockLine : "3",
+    location : x3y2,
+    present : false,
+
+},{
+
+    rockSpeed : "2",
+    rockLine : "4",
+    location : x4y2,
+    present : false,
+
+},{
+
+    rockSpeed : "2",
+    rockLine : "5",
+    location : x5y2,
+    present : false,
+
+},{
+
+    rockSpeed : "3",
+    rockLine : "1",
+    location : x1y3,
+    present : false,
+
+},{
+
+    rockSpeed : "3",
+    rockLine : "2",
+    location : x2y3,
+    present : false,
+
+},{
+
+    rockSpeed : "3",
+    rockLine : "3",
+    location : x3y3,
+    present : false,
+
+},{
+
+    rockSpeed : "3",
+    rockLine : "4",
+    location : x4y3,
+    present : false,
+
+},{
+
+    rockSpeed : "3",
+    rockLine : "5",
+    location : x5y3,
+    present : false,
+
+},{
+
+    rockSpeed : "4",
+    rockLine : "1",
+    location : x1y4,
+    present : false,
+
+}, {
+
+    rockSpeed : "4",
+    rockLine : "2",
+    location : x2y4,
+    present : false,
+
+}, {
+
+    rockSpeed : "4",
+    rockLine : "3",
+    location : x3y4,
+    present : false,
+
+}, {
+
+    rockSpeed : "4",
+    rockLine : "4",
+    location : x4y4,
+    present : false,
+
+}, {
+
+    rockSpeed : "4",
+    rockLine : "5",
+    location : x5y4,
+    present : false,
+
+}, {
+
+    rockSpeed : "5",
+    rockLine : "1",
+    location : x1y5,
+    present : false,
+
+}, {
+
+    rockSpeed : "5",
+    rockLine : "2",
+    location : x2y5,
+    present : false,
+
+}, {
+
+    rockSpeed : "5",
+    rockLine : "3",
+    location : x3y5,
+    present : false,
+
+}, {
+
+    rockSpeed : "5",
+    rockLine : "4",
+    location : x4y5,
+    present : false,
+
+}, {
+
+    rockSpeed : "5",
+    rockLine : "5",
+    location : x5y5,
+    present : false,
+
+}, {
+
+    rockSpeed : "6",
+    rockLine : "1",
+    location : x1y6,
+    present : false,
+
+}, {
+
+    rockSpeed : "6",
+    rockLine : "2",
+    location : x2y6,
+    present : false,
+
+}, {
+
+    rockSpeed : "6",
+    rockLine : "3",
+    location : x3y6,
+    present : false,
+
+}, {
+
+    rockSpeed : "6",
+    rockLine : "4",
+    location : x4y6,
+    present : false,
+
+}, {
+
+    rockSpeed : "6",
+    rockLine : "5",
+    location : x5y6,
+    present : false,
+
+}
+
+
+]
+
 const tossRock = function () {
-    if (lineChoice === '1' && speedChoice ==='heavy') {
-        if (Math.random() > 0.5) {
-            x1y1.style.background = "blue"
-        } else {
-            x1y2.style.background = "blue"
-        }
-    } else if (lineChoice === '2' && speedChoice ==='heavy') {
-        if (Math.random() > 0.5) {
-            x2y1.style.background = "blue"
-        } else {
-            x2y2.style.background = "blue"
-        }    
-    } else if (lineChoice === '3' && speedChoice ==='heavy') {
-        if (Math.random() > 0.5) {
-            x3y1.style.background = "blue"
-        } else {
-            x3y2.style.background = "blue"
-        }
-    } else if (lineChoice === '4' && speedChoice ==='heavy') {
-        if (Math.random() > 0.5) {
-            x4y1.style.background = "blue"
-        } else {
-            x4y2.style.background = "blue"
-        }
-    } else if (lineChoice === '5' && speedChoice ==='heavy') {
-        if (Math.random() > 0.5) {
-            x5y1.style.background = "blue"
-        } else {
-            x5y2.style.background = "blue"
-        }
-    } else if (lineChoice === '1' && speedChoice ==='medium') {
-        if (Math.random() > 0.5) {
-            x1y3.style.background = "blue"
-        } else {
-            x1y4.style.background = "blue"
-        }
-    } else if (lineChoice === '2' && speedChoice ==='medium') {
-        if (Math.random() > 0.5) {
-            x2y3.style.background = "blue"
-        } else {
-            x2y4.style.background = "blue"
-        }
-    } else if (lineChoice === '3' && speedChoice ==='medium') {
-        if (Math.random() > 0.5) {
-            x3y3.style.background = "blue"
-        } else {
-            x3y4.style.background = "blue"
-        }
-    } else if (lineChoice === '4' && speedChoice ==='medium') {
-        if (Math.random() > 0.5) {
-            x4y3.style.background = "blue"
-        } else {
-            x4y4.style.background = "blue"
-        }
-    } else if (lineChoice === '5' && speedChoice ==='medium') {
-        if (Math.random() > 0.5) {
-            x5y3.style.background = "blue"
-        } else {
-            x5y4.style.background = "blue"
-        }
-    } else if (lineChoice === '1' && speedChoice ==='light') {
-        if (Math.random() > 0.5) {
-            x1y5.style.background = "blue"
-        } else {
-            x1y6.style.background = "blue"
-        }
-    } else if (lineChoice === '2' && speedChoice ==='light') {
-        if (Math.random() > 0.5) {
-            x2y5.style.background = "blue"
-        } else {
-            x2y6.style.background = "blue"
-        }
-    } else if (lineChoice === '3' && speedChoice ==='light') {
-        if (Math.random() > 0.5) {
-            x3y5.style.background = "blue"
-        } else {
-            x3y6.style.background = "blue"
-        }
-    } else if (lineChoice === '4' && speedChoice ==='light') {
-        if (Math.random() > 0.5) {
-            x4y5.style.background = "blue"
-        } else {
-            x4y6.style.background = "blue"
-        } 
-    } else if (lineChoice === '5' && speedChoice ==='light') {
-        if (Math.random() > 0.5) {
-            x5y5.style.background = "blue"
-        } else {
-            x5y6.style.background = "blue"
-        }
-    }
-     
+    rockData.forEach(rock => { if (rock.rockLine === lineChoice && rock.rockSpeed === speedChoice && rock.present === false) rock.location.style.background = "blue" }) 
+
+}
+
+
+    //  *******************************HITZZZZZZZZZZZ*******************************
+
     // } else if (lineChoice === '1' && speedChoice ==='hit') {
     //     if(x1y1.style.background === "blue") {
     //         x1Line.style.background = "red" }
@@ -207,85 +360,10 @@ const tossRock = function () {
     // } else {
     //     console.log("Pick your line and weight before shooting")
     // }
-}
 
 
-const Rock = function (colour, speed, location) {
-    this.colour = colour
-    this.speed = speed
-    this.location = location
-}
-
-
-const allRedRocks = []
-
-let red1 = new Rock('red', 0, {x:0, y:0})
-let red2 = new Rock('red', 0, {x:0, y:0})
-let red3 = new Rock('red', 0, {x:0, y:0})
-let red4 = new Rock('red', 0, {x:0, y:0})
-let red5 = new Rock('red', 0, {x:0, y:0})
-let red6 = new Rock('red', 0, {x:0, y:0})
-let red7 = new Rock('red', 0, {x:0, y:0})
-let red8 = new Rock('red', 0, {x:0, y:0})
-
-let blue1 = new Rock('blue', 0, {x:0, y:0})
-let blue2 = new Rock('blue', 0, {x:0, y:0})
-let blue3 = new Rock('blue', 0, {x:0, y:0})
-let blue4 = new Rock('blue', 0, {x:0, y:0})
-let blue5 = new Rock('blue', 0, {x:0, y:0})
-let blue6 = new Rock('blue', 0, {x:0, y:0})
-let blue7 = new Rock('blue', 0, {x:0, y:0})
-let blue8 = new Rock('blue', 0, {x:0, y:0})
-
-console.log(blue1);
-
-// 1.make an object for each square in the grid
-// 2.include speed, line, grid location and rock present = false
-// 3.save user choices to a variable
-// 4. write a toss rock function that loops throught he array looking for match to user selections
-// 5. append color (rock) to grid location accordingly
-
-let blue = [{
-
-    speed = medium,
-    line = 3,
-    location = x1y1,
-    present = false,
-
-},{
-
-    speed = medium,
-    line = 3,
-    location = x1y2,
-    present = false,
-
-},
+    //  *******************************HITZZZZZZZZZZZ*******************************
 
 
 
-]
-
-
-
-// console.log(red1)
-// const allRocks = [
-    
-//     {
-  
-//     lineChoice: 1,
-//     speed: draw,
-//     value: 1,
-
-//     },
-    
-//     {
-//     lineChoice: 2,
-//     speed: draw,
-//     value: 2,
-
-//     }
-
-
-
-// ]
 
