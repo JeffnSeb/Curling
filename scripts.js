@@ -5,7 +5,8 @@ let hitSubmit = document.getElementById('hitButton')
 
 
 
-let tossSubmit = document.getElementById('tossButton')
+let tossSubmit1 = document.getElementById('tossButton1')
+let tossSubmit2 = document.getElementById('tossButton2')
 
 let x1y1 = document.getElementById('x1-y1')
 let x2y1 = document.getElementById('x2-y1')
@@ -99,9 +100,14 @@ hitSubmit.addEventListener('click', function(event){
     speedChoice = 'hit'
 })
 
-tossSubmit.addEventListener('click', function(event){
+tossSubmit1.addEventListener('click', function(event){
     event.preventDefault()
-    tossRock()
+    tossRock1()
+})
+
+tossSubmit2.addEventListener('click', function(event){
+    event.preventDefault()
+    tossRock2()
 })
 
 
@@ -110,6 +116,18 @@ tossSubmit.addEventListener('click', function(event){
 // 3.save user choices to a variable
 // 4. write a toss rock function that loops throught he array looking for match to user selections
 // 5. append color (rock) to grid location accordingly
+
+let team1 = [{
+    colour: "red",
+    score: 0,
+    rocksRemaining: 8
+}]
+
+let team2 = [{
+    colour: "blue",
+    score: 0,
+    rocksRemaining: 8
+}]
 
 let rockData = [{
 
@@ -329,10 +347,41 @@ let rockData = [{
 
 ]
 
-const tossRock = function () {
-    rockData.forEach(rock => { if (rock.rockLine === lineChoice && rock.rockSpeed === speedChoice && rock.present === false) rock.location.style.background = "blue" }) 
+// Check if there is a rock in the path of the thrown rock
+// If there is, tap the rock in the way to the original location and replace with new rock
+// else populate original location with new rock
 
+//replace .forEach() with for loop to include multiple if statements.
+
+const tossRock1 = function () {
+    rockData.forEach(rock => {
+        if (rock.rockLine === lineChoice && rock.rockSpeed === speedChoice && rock.present === false) rock.location.style.background = "blue", rock.present = true})
+    
+    rockData.forEach(rock => {
+        if (rock.rockLine === lineChoice && speedChoice === 'hit' && rock.present === true) rock.location.style.background = "blue", rock.present = false})
+    
+    rockData.forEach(rock => {
+        if(rock.rockLine === lineChoice && rock.present === true && rock.rockSpeed > speedChoice && rock.location.style.background === "blue") rock.location.style.background = "blue", rock.present = true})
+    rockData.forEach(rock => {
+        if(rock.rockLine === lineChoice && rock.present === true && rock.rockSpeed > speedChoice && rock.location.style.background === "red") rock.location.style.background = "blue", rock.present = true})
+            
 }
+
+const tossRock2 = function () {
+    rockData.forEach(rock => {
+        if (rock.rockLine === lineChoice && rock.rockSpeed === speedChoice && rock.present === false) rock.location.style.background = "red", rock.present = true})
+    
+    rockData.forEach(rock => {
+        if (rock.rockLine === lineChoice && speedChoice === 'hit' && rock.present === true) rock.location.style.background = "red", rock.present = false})
+    
+    rockData.forEach(rock => {
+        if(rock.rockLine === lineChoice && rock.present === true && rock.rockSpeed > speedChoice && rock.location.style.background === "red") rock.location.style.background = "red", rock.present = true})
+    rockData.forEach(rock => {
+        if(rock.rockLine === lineChoice && rock.present === true && rock.rockSpeed > speedChoice && rock.location.style.background === "blue") rock.location.style.background = "red", rock.present = true})
+        
+}
+
+
 
 
     //  *******************************HITZZZZZZZZZZZ*******************************
