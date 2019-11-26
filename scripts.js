@@ -354,16 +354,25 @@ let rockData = [{
 //replace .forEach() with for loop to include multiple if statements.
 
 const tossRock1 = function () {
-    rockData.forEach(rock => {
-        if (rock.rockLine === lineChoice && rock.rockSpeed === speedChoice && rock.present === false) rock.location.style.background = "blue", rock.present = true})
-    
-    rockData.forEach(rock => {
-        if (rock.rockLine === lineChoice && speedChoice === 'hit' && rock.present === true) rock.location.style.background = "blue", rock.present = false})
-    
-    rockData.forEach(rock => {
-        if(rock.rockLine === lineChoice && rock.present === true && rock.rockSpeed > speedChoice && rock.location.style.background === "blue") rock.location.style.background = "blue", rock.present = true})
-    rockData.forEach(rock => {
-        if(rock.rockLine === lineChoice && rock.present === true && rock.rockSpeed > speedChoice && rock.location.style.background === "red") rock.location.style.background = "blue", rock.present = true})
+    for(let i = 0; i < rockData.length; i++) {
+        if (rockData[i].rockLine === lineChoice && rockData[i].present === true)  {
+            console.log(rockData[i + 5].location); 
+
+        }
+
+        if (rockData[i].rockLine === lineChoice && rockData[i].rockSpeed === speedChoice && rockData[i].present === false) {
+            rockData[i].location.style.background = "blue", rockData[i].present = true 
+
+        } else if (rockData[i].rockLine === lineChoice && speedChoice === 'hit' && rockData[i].present === true)  {
+            rockData[i].location.style.background = "blue", rockData[i].present = false
+        
+
+        } else if (rockData[i].rockLine === lineChoice && rockData[i].present === true && rockData[i].rockSpeed > speedChoice && rockData[i].location.style.background === "blue") { 
+        rockData[i].location.style.background = "blue"
+        }
+
+        // } else if (rockData[i].rockLine === lineChoice && rockData[i].present === true && rockData[i].rockSpeed > speedChoice && rockData[i].location.style.background === "rocred") rockData[i].location.style.background = "blue", rockData[i].present = true
+    }
             
 }
 
